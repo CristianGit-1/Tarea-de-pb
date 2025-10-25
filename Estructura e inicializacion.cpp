@@ -13,7 +13,6 @@ struct Usuario {
     string direccion;
     string metodoDePago;
 };
-
 struct Producto {
     int idProducto;
     string nombre;
@@ -21,12 +20,10 @@ struct Producto {
     double precio;
     int stock;
 };
-
 struct Categoria {
     int idCategoria;
     string nombre;
 };
-
 struct Comentario {
     int idComentario;
     string nombreProducto; 
@@ -34,7 +31,6 @@ struct Comentario {
     string comentario;
     string fecha;
 };
-
 struct CarritoDeCompras {
     int idCarrito;
     Usuario usuario;
@@ -42,7 +38,6 @@ struct CarritoDeCompras {
     double subtotal;
     double impuestos;
 };
-
 struct OrdenDeCompra {
     int idOrden;
     vector<Producto> productos;
@@ -51,133 +46,126 @@ struct OrdenDeCompra {
     double envio;
     double total;
 };
-
-// Vectores globales
+//Vectores
 vector<Usuario> usuarios;
 vector<Producto> productos;
 vector<Comentario> comentarios;
 vector<CarritoDeCompras> carritos;
-
-// 1. INICIALIZACIÓN 
+//Carga de vectores
 void cargarDatos() {
     cout << "Cargando datos iniciales..." << endl;
     Sleep(3000);
-    // Cargar usuarios
-    usuarios.push_back((Usuario){1, "Juan Pérez", "juan.perez@email.com", "Qwerty123", "Carrera 45 #10-20", "Tarjeta de crédito"});
-    usuarios.push_back((Usuario){2, "Ana Gómez", "ana.gomez@email.com", "Pass456", "Calle 21 #35-50", "PayPal"});
+    //Usuarios
+    usuarios.push_back((Usuario){1, "Juan PÃ©rez", "juan.perez@email.com", "Qwerty123", "Carrera 45 #10-20", "Tarjeta de crÃ©dito"});
+    usuarios.push_back((Usuario){2, "Ana GÃ³mez", "ana.gomez@email.com", "Pass456", "Calle 21 #35-50", "PayPal"});
     usuarios.push_back((Usuario){3, "Carlos Ruiz", "carlos.ruiz@email.com", "Segura789", "Avenida Principal #100", "Transferencia bancaria"});
-    usuarios.push_back((Usuario){4, "Sofía Martínez", "sofia.martinez@email.com", "Clave987", "Calle 8 #20-30", "Efectivo"});
-    usuarios.push_back((Usuario){5, "Diego Fernández", "diego.fernandez@email.com", "Contra654", "Carrera 77 #40-60", "Tarjeta débito"});
-
-    // Cargar productos
-    productos.push_back((Producto){1, "Laptop", "Portátil con pantalla Full HD y SSD de 512GB", 89999, 10});
-    productos.push_back((Producto){2, "Smartphone", "Teléfono con cámara de 108MP y carga rápida", 49950, 20});
-    productos.push_back((Producto){3, "Tablet", "Dispositivo con pantalla táctil de 10 pulgadas", 29999, 15});
-    productos.push_back((Producto){4, "Auriculares", "Audífonos inalámbricos con cancelación de ruido", 12999, 25});
-    productos.push_back((Producto){5, "Teclado", "Teclado mecánico con iluminación RGB", 8999, 30});
-    productos.push_back((Producto){6, "Mouse", "Ratón inalámbrico con sensor óptico de alta precisión", 5999, 50});
+    usuarios.push_back((Usuario){4, "SofÃ­a MartÃ­nez", "sofia.martinez@email.com", "Clave987", "Calle 8 #20-30", "Efectivo"});
+    usuarios.push_back((Usuario){5, "Diego FernÃ¡ndez", "diego.fernandez@email.com", "Contra654", "Carrera 77 #40-60", "Tarjeta dÃ©bito"});
+    //Productos
+    productos.push_back((Producto){1, "Laptop", "PortÃ¡til con pantalla Full HD y SSD de 512GB", 89999, 10});
+    productos.push_back((Producto){2, "Smartphone", "TelÃ©fono con cÃ¡mara de 108MP y carga rÃ¡pida", 49950, 20});
+    productos.push_back((Producto){3, "Tablet", "Dispositivo con pantalla tÃ¡ctil de 10 pulgadas", 29999, 15});
+    productos.push_back((Producto){4, "Auriculares", "AudÃ­fonos inalÃ¡mbricos con cancelaciÃ³n de ruido", 12999, 25});
+    productos.push_back((Producto){5, "Teclado", "Teclado mecÃ¡nico con iluminaciÃ³n RGB", 8999, 30});
+    productos.push_back((Producto){6, "Mouse", "RatÃ³n inalÃ¡mbrico con sensor Ã³ptico de alta precisiÃ³n", 5999, 50});
     productos.push_back((Producto){7, "Monitor", "Pantalla LED 4K de 27 pulgadas", 49900, 12});
-    productos.push_back((Producto){8, "Impresora", "Láser multifuncional con Wi-Fi", 17999, 18});
-    productos.push_back((Producto){9, "Cámara", "Cámara digital con lente profesional", 79999, 8});
-    productos.push_back((Producto){10, "Smartwatch", "Reloj inteligente con GPS y monitoreo cardíaco", 19999, 22});
-    productos.push_back((Producto){11, "Silla Gamer", "Silla ergonómica ajustable con soporte lumbar", 29999, 14});
-    productos.push_back((Producto){12, "Microondas", "Horno microondas con múltiples funciones", 12999, 40});
-    productos.push_back((Producto){13, "Refrigerador", "Frigorífico doble puerta con sistema No Frost", 119999, 5});
-    productos.push_back((Producto){14, "Lavadora", "Lavadora automática con capacidad de 10kg", 59999, 7});
+    productos.push_back((Producto){8, "Impresora", "LÃ¡ser multifuncional con Wi-Fi", 17999, 18});
+    productos.push_back((Producto){9, "CÃ¡mara", "CÃ¡mara digital con lente profesional", 79999, 8});
+    productos.push_back((Producto){10, "Smartwatch", "Reloj inteligente con GPS y monitoreo cardÃ­aco", 19999, 22});
+    productos.push_back((Producto){11, "Silla Gamer", "Silla ergonÃ³mica ajustable con soporte lumbar", 29999, 14});
+    productos.push_back((Producto){12, "Microondas", "Horno microondas con mÃºltiples funciones", 12999, 40});
+    productos.push_back((Producto){13, "Refrigerador", "FrigorÃ­fico doble puerta con sistema No Frost", 119999, 5});
+    productos.push_back((Producto){14, "Lavadora", "Lavadora automÃ¡tica con capacidad de 10kg", 59999, 7});
     productos.push_back((Producto){15, "Cafetera", "Cafetera express con vaporizador de leche", 14999, 35});
-    productos.push_back((Producto){16, "Drone", "Drone con cámara 4K y estabilizador", 69999, 9});
-    productos.push_back((Producto){17, "Bocina Bluetooth", "Altavoz portátil con sonido envolvente", 8999, 33});
-    productos.push_back((Producto){18, "Videocámara", "Videocámara profesional con grabación en 4K", 99999, 6});
+    productos.push_back((Producto){16, "Drone", "Drone con cÃ¡mara 4K y estabilizador", 69999, 9});
+    productos.push_back((Producto){17, "Bocina Bluetooth", "Altavoz portÃ¡til con sonido envolvente", 8999, 33});
+    productos.push_back((Producto){18, "VideocÃ¡mara", "VideocÃ¡mara profesional con grabaciÃ³n en 4K", 99999, 6});
     productos.push_back((Producto){19, "TV LED", "Televisor inteligente de 55 pulgadas con HDR", 74999, 11});
-    productos.push_back((Producto){20, "Batería Externa", "Batería de 20000mAh con carga rápida", 3999, 45});
+    productos.push_back((Producto){20, "BaterÃ­a Externa", "BaterÃ­a de 20000mAh con carga rÃ¡pida", 3999, 45});
     productos.push_back((Producto){21, "Disco Duro", "Disco duro externo de 2TB", 12999, 28});
     productos.push_back((Producto){22, "Memoria USB", "Pendrive de 128GB", 2999, 60});
     productos.push_back((Producto){23, "Router", "Router Wi-Fi 6 de alta velocidad", 19999, 16});
-    productos.push_back((Producto){24, "Joystick", "Control inalámbrico para videojuegos", 7999, 20});
-    productos.push_back((Producto){25, "Fuente de Poder", "Fuente de alimentación para PC de 750W", 8999, 17});
+    productos.push_back((Producto){24, "Joystick", "Control inalÃ¡mbrico para videojuegos", 7999, 20});
+    productos.push_back((Producto){25, "Fuente de Poder", "Fuente de alimentaciÃ³n para PC de 750W", 8999, 17});
     productos.push_back((Producto){26, "SSD", "Unidad de almacenamiento SSD de 1TB", 14999, 32});
-    productos.push_back((Producto){27, "Altavoces", "Par de bocinas estéreo con subwoofer", 13999, 23});
-    productos.push_back((Producto){28, "Webcam", "Cámara web Full HD con micrófono integrado", 6999, 37});
-    productos.push_back((Producto){29, "Procesador", "CPU Intel i7 de última generación", 34999, 9});
+    productos.push_back((Producto){27, "Altavoces", "Par de bocinas estÃ©reo con subwoofer", 13999, 23});
+    productos.push_back((Producto){28, "Webcam", "CÃ¡mara web Full HD con micrÃ³fono integrado", 6999, 37});
+    productos.push_back((Producto){29, "Procesador", "CPU Intel i7 de Ãºltima generaciÃ³n", 34999, 9});
     productos.push_back((Producto){30, "Motherboard", "Placa base compatible con procesadores modernos", 19999, 13});
-    productos.push_back((Producto){31, "Memoria RAM", "Módulo de RAM DDR4 de 16GB", 7999, 41});
-    productos.push_back((Producto){32, "Fuente Solar", "Panel solar portátil con batería integrada", 24999, 4});
+    productos.push_back((Producto){31, "Memoria RAM", "MÃ³dulo de RAM DDR4 de 16GB", 7999, 41});
+    productos.push_back((Producto){32, "Fuente Solar", "Panel solar portÃ¡til con baterÃ­a integrada", 24999, 4});
     productos.push_back((Producto){33, "Control Remoto", "Mando universal para TV y dispositivos", 2499, 50});
     productos.push_back((Producto){34, "Termostato", "Termostato digital programable", 9999, 22});
-    productos.push_back((Producto){35, "Smart Lock", "Cerradura electrónica con huella digital", 19999, 6});
-    productos.push_back((Producto){36, "Proyector", "Proyector LED con resolución Full HD", 29999, 12});
+    productos.push_back((Producto){35, "Smart Lock", "Cerradura electrÃ³nica con huella digital", 19999, 6});
+    productos.push_back((Producto){36, "Proyector", "Proyector LED con resoluciÃ³n Full HD", 29999, 12});
     productos.push_back((Producto){37, "Switch Ethernet", "Switch de red de 8 puertos", 5999, 38});
     productos.push_back((Producto){38, "Reloj Digital", "Reloj inteligente con pantalla AMOLED", 8999, 26});
     productos.push_back((Producto){39, "Luces LED", "Tiras LED RGB con control remoto", 3999, 55});
-    productos.push_back((Producto){40, "Estabilizador", "Estabilizador de voltaje para dispositivos electrónicos", 15999, 10});
-    productos.push_back((Producto){41, "Cargador Inalámbrico", "Base de carga inalámbrica rápida", 4999, 30});
-    productos.push_back((Producto){42, "HDD Externo", "Disco duro portátil de 4TB", 17999, 15});
-    productos.push_back((Producto){43, "Micrófono", "Micrófono profesional para grabación", 14999, 7});
+    productos.push_back((Producto){40, "Estabilizador", "Estabilizador de voltaje para dispositivos electrÃ³nicos", 15999, 10});
+    productos.push_back((Producto){41, "Cargador InalÃ¡mbrico", "Base de carga inalÃ¡mbrica rÃ¡pida", 4999, 30});
+    productos.push_back((Producto){42, "HDD Externo", "Disco duro portÃ¡til de 4TB", 17999, 15});
+    productos.push_back((Producto){43, "MicrÃ³fono", "MicrÃ³fono profesional para grabaciÃ³n", 14999, 7});
     productos.push_back((Producto){44, "Altavoz Inteligente", "Asistente de voz con altavoz integrado", 12999, 20});
-    productos.push_back((Producto){45, "Antena Wi-Fi", "Amplificador de señal inalámbrico", 7999, 33});
-    productos.push_back((Producto){46, "Climatizador", "Aire acondicionado portátil con control remoto", 29999, 5});
+    productos.push_back((Producto){45, "Antena Wi-Fi", "Amplificador de seÃ±al inalÃ¡mbrico", 7999, 33});
+    productos.push_back((Producto){46, "Climatizador", "Aire acondicionado portÃ¡til con control remoto", 29999, 5});
     productos.push_back((Producto){47, "Raspberry Pi", "Kit de desarrollo con Raspberry Pi 4", 12999, 19});
-    productos.push_back((Producto){48, "Capturadora", "Placa de captura de video en alta resolución", 19999, 8});
+    productos.push_back((Producto){48, "Capturadora", "Placa de captura de video en alta resoluciÃ³n", 19999, 8});
     productos.push_back((Producto){49, "Smart Plug", "Enchufe inteligente compatible con asistentes virtuales", 3999, 42});
-    productos.push_back((Producto){50, "Timbre Inteligente", "Timbre con cámara y conexión a Wi-Fi", 14999, 10});
-
-
-
-	// Cargar comentarios
-	comentarios.push_back((Comentario){1, "Laptop", "Juan Pérez", "Excelente rendimiento; muy rápida. ¡Me encanta!", "01/05/2025"});
-	comentarios.push_back((Comentario){2, "Smartphone", "Ana Gómez", "Buena cámara pero la batería dura poco.", "03/05/2025"});
-	comentarios.push_back((Comentario){3, "Tablet", "Carlos Ruiz", "No me gustó; pantalla de baja calidad.", "05/05/2025"});
-	comentarios.push_back((Comentario){4, "Auriculares", "Sofía Martínez", "Sonido aceptable pero el material parece frágil.", "06/05/2025"});
-	comentarios.push_back((Comentario){5, "Teclado", "Diego Fernández", "Muy buen teclado mecánico; excelente respuesta.", "08/05/2025"});
-	comentarios.push_back((Comentario){6, "Mouse", "Ana Gómez", "El sensor no es tan preciso como esperaba.", "10/05/2025"});
-	comentarios.push_back((Comentario){7, "Monitor", "Carlos Ruiz", "Colores vibrantes y buena resolución. Muy satisfecho.", "12/05/2025"});
-	comentarios.push_back((Comentario){8, "Impresora", "Juan Pérez", "Tarda mucho en imprimir; no me convence.", "13/05/2025"});
-	comentarios.push_back((Comentario){9, "Cámara", "Sofía Martínez", "Increíble calidad de imagen; fotos súper nítidas.", "15/05/2025"});
-	comentarios.push_back((Comentario){10, "Smartwatch", "Diego Fernández", "Buena batería; pero la pantalla no es muy brillante.", "18/05/2025"});
-	comentarios.push_back((Comentario){11, "Silla Gamer", "Lucía Rodríguez", "Comodidad espectacular; perfecto para largas sesiones de juego.", "20/05/2025"});
-	comentarios.push_back((Comentario){12, "Microondas", "Andrés Ramírez", "Calienta bien pero hace mucho ruido.", "22/05/2025"});
-	comentarios.push_back((Comentario){13, "Refrigerador", "María García", "Espacioso y enfría rápido; muy recomendado.", "24/05/2025"});
-	comentarios.push_back((Comentario){14, "Lavadora", "Javier Martínez", "Lava bien pero el ciclo es muy largo.", "26/05/2025"});
-	comentarios.push_back((Comentario){15, "Cafetera", "Carolina López", "Hace café delicioso; fácil de usar.", "28/05/2025"});
-	comentarios.push_back((Comentario){16, "Drone", "Daniel Castro", "Muy divertido pero la batería dura poco.", "30/05/2025"});
-	comentarios.push_back((Comentario){17, "Bocina Bluetooth", "Paola Herrera", "Sonido potente y buena conexión Bluetooth.", "01/06/2025"});
-	comentarios.push_back((Comentario){18, "Videocámara", "Esteban Rojas", "Perfecta para grabaciones profesionales.", "03/06/2025"});
-	comentarios.push_back((Comentario){19, "TV LED", "Fernanda Sánchez", "Imagen excelente pero el sonido podría mejorar.", "05/06/2025"});
-	comentarios.push_back((Comentario){20, "Batería Externa", "Camilo Torres", "Carga bien pero es un poco pesada.", "07/06/2025"});
-	comentarios.push_back((Comentario){21, "Disco Duro", "Gabriela Suárez", "Gran capacidad de almacenamiento; funciona rápido.", "09/06/2025"});
-	comentarios.push_back((Comentario){22, "Memoria USB", "Raúl Espinosa", "Buen tamaño pero la velocidad de transferencia es baja.", "11/06/2025"});
-	comentarios.push_back((Comentario){23, "Router", "Verónica Mendoza", "Señal potente; cubre toda la casa.", "13/06/2025"});
-	comentarios.push_back((Comentario){24, "Joystick", "Fablo Jiménez", "Comodo y resistente; ideal para gaming.", "15/06/2025"});
+    productos.push_back((Producto){50, "Timbre Inteligente", "Timbre con cÃ¡mara y conexiÃ³n a Wi-Fi", 14999, 10});
+    //Comentarios
+	comentarios.push_back((Comentario){1, "Laptop", "Juan PÃ©rez", "Excelente rendimiento; muy rÃ¡pida. Â¡Me encanta!", "01/05/2025"});
+	comentarios.push_back((Comentario){2, "Smartphone", "Ana GÃ³mez", "Buena cÃ¡mara pero la baterÃ­a dura poco.", "03/05/2025"});
+	comentarios.push_back((Comentario){3, "Tablet", "Carlos Ruiz", "No me gustÃ³; pantalla de baja calidad.", "05/05/2025"});
+	comentarios.push_back((Comentario){4, "Auriculares", "SofÃ­a MartÃ­nez", "Sonido aceptable pero el material parece frÃ¡gil.", "06/05/2025"});
+	comentarios.push_back((Comentario){5, "Teclado", "Diego FernÃ¡ndez", "Muy buen teclado mecÃ¡nico; excelente respuesta.", "08/05/2025"});
+	comentarios.push_back((Comentario){6, "Mouse", "Ana GÃ³mez", "El sensor no es tan preciso como esperaba.", "10/05/2025"});
+	comentarios.push_back((Comentario){7, "Monitor", "Carlos Ruiz", "Colores vibrantes y buena resoluciÃ³n. Muy satisfecho.", "12/05/2025"});
+	comentarios.push_back((Comentario){8, "Impresora", "Juan PÃ©rez", "Tarda mucho en imprimir; no me convence.", "13/05/2025"});
+	comentarios.push_back((Comentario){9, "CÃ¡mara", "SofÃ­a MartÃ­nez", "IncreÃ­ble calidad de imagen; fotos sÃºper nÃ­tidas.", "15/05/2025"});
+	comentarios.push_back((Comentario){10, "Smartwatch", "Diego FernÃ¡ndez", "Buena baterÃ­a; pero la pantalla no es muy brillante.", "18/05/2025"});
+	comentarios.push_back((Comentario){11, "Silla Gamer", "LucÃ­a RodrÃ­guez", "Comodidad espectacular; perfecto para largas sesiones de juego.", "20/05/2025"});
+	comentarios.push_back((Comentario){12, "Microondas", "AndrÃ©s RamÃ­rez", "Calienta bien pero hace mucho ruido.", "22/05/2025"});
+	comentarios.push_back((Comentario){13, "Refrigerador", "MarÃ­a GarcÃ­a", "Espacioso y enfrÃ­a rÃ¡pido; muy recomendado.", "24/05/2025"});
+	comentarios.push_back((Comentario){14, "Lavadora", "Javier MartÃ­nez", "Lava bien pero el ciclo es muy largo.", "26/05/2025"});
+	comentarios.push_back((Comentario){15, "Cafetera", "Carolina LÃ³pez", "Hace cafÃ© delicioso; fÃ¡cil de usar.", "28/05/2025"});
+	comentarios.push_back((Comentario){16, "Drone", "Daniel Castro", "Muy divertido pero la baterÃ­a dura poco.", "30/05/2025"});
+	comentarios.push_back((Comentario){17, "Bocina Bluetooth", "Paola Herrera", "Sonido potente y buena conexiÃ³n Bluetooth.", "01/06/2025"});
+	comentarios.push_back((Comentario){18, "VideocÃ¡mara", "Esteban Rojas", "Perfecta para grabaciones profesionales.", "03/06/2025"});
+	comentarios.push_back((Comentario){19, "TV LED", "Fernanda SÃ¡nchez", "Imagen excelente pero el sonido podrÃ­a mejorar.", "05/06/2025"});
+	comentarios.push_back((Comentario){20, "BaterÃ­a Externa", "Camilo Torres", "Carga bien pero es un poco pesada.", "07/06/2025"});
+	comentarios.push_back((Comentario){21, "Disco Duro", "Gabriela SuÃ¡rez", "Gran capacidad de almacenamiento; funciona rÃ¡pido.", "09/06/2025"});
+	comentarios.push_back((Comentario){22, "Memoria USB", "RaÃºl Espinosa", "Buen tamaÃ±o pero la velocidad de transferencia es baja.", "11/06/2025"});
+	comentarios.push_back((Comentario){23, "Router", "VerÃ³nica Mendoza", "SeÃ±al potente; cubre toda la casa.", "13/06/2025"});
+	comentarios.push_back((Comentario){24, "Joystick", "Fablo JimÃ©nez", "Comodo y resistente; ideal para gaming.", "15/06/2025"});
 	comentarios.push_back((Comentario){25, "Fuente de Poder", "Ricardo Vargas", "Funciona bien pero los cables son muy cortos.", "17/06/2025"});
-	comentarios.push_back((Comentario){26, "SSD", "Silvia Gómez", "Velocidad increíble; mi PC va mucho más rápido ahora.", "19/06/2025"});
-	comentarios.push_back((Comentario){27, "Altavoces", "Martín Aguilar", "Sonido envolvente; muy buena compra.", "21/06/2025"});
-	comentarios.push_back((Comentario){28, "Webcam", "Valentina Pérez", "Imagen clara pero el micrófono es deficiente.", "23/06/2025"});
-	comentarios.push_back((Comentario){29, "Procesador", "José Ramírez", "Rendimiento impecable; ideal para gaming y diseño.", "25/06/2025"});
-	comentarios.push_back((Comentario){30, "Motherboard", "Natalia Correa", "Buenas prestaciones pero la instalación fue complicada.", "27/06/2025"});
-	comentarios.push_back((Comentario){31, "Memoria RAM", "Julio Fernández", "Expande muy bien el rendimiento del sistema.", "29/06/2025"});
-	comentarios.push_back((Comentario){32, "Fuente Solar", "Amanda Castro", "Energía confiable pero la batería es pequeña.", "01/07/2025"});
-	comentarios.push_back((Comentario){33, "Control Remoto", "Pedro Duarte", "Fácil de usar; reconoce muchos dispositivos.", "03/07/2025"});
+	comentarios.push_back((Comentario){26, "SSD", "Silvia GÃ³mez", "Velocidad increÃ­ble; mi PC va mucho mÃ¡s rÃ¡pido ahora.", "19/06/2025"});
+	comentarios.push_back((Comentario){27, "Altavoces", "MartÃ­n Aguilar", "Sonido envolvente; muy buena compra.", "21/06/2025"});
+	comentarios.push_back((Comentario){28, "Webcam", "Valentina PÃ©rez", "Imagen clara pero el micrÃ³fono es deficiente.", "23/06/2025"});
+	comentarios.push_back((Comentario){29, "Procesador", "JosÃ© RamÃ­rez", "Rendimiento impecable; ideal para gaming y diseÃ±o.", "25/06/2025"});
+	comentarios.push_back((Comentario){30, "Motherboard", "Natalia Correa", "Buenas prestaciones pero la instalaciÃ³n fue complicada.", "27/06/2025"});
+	comentarios.push_back((Comentario){31, "Memoria RAM", "Julio FernÃ¡ndez", "Expande muy bien el rendimiento del sistema.", "29/06/2025"});
+	comentarios.push_back((Comentario){32, "Fuente Solar", "Amanda Castro", "EnergÃ­a confiable pero la baterÃ­a es pequeÃ±a.", "01/07/2025"});
+	comentarios.push_back((Comentario){33, "Control Remoto", "Pedro Duarte", "FÃ¡cil de usar; reconoce muchos dispositivos.", "03/07/2025"});
 	comentarios.push_back((Comentario){34, "Termostato", "Isabela Medina", "Regula bien la temperatura; intuitivo de usar.", "05/07/2025"});
-	comentarios.push_back((Comentario){35, "Smart Lock", "Oscar Rodríguez", "Seguridad y tecnología en un solo dispositivo.", "07/07/2025"});
-	comentarios.push_back((Comentario){36, "Proyector", "Cristina Vargas", "Imagen nítida pero requiere una sala oscura.", "09/07/2025"});
-	comentarios.push_back((Comentario){37, "Switch Ethernet", "Mario Hernández", "Buena velocidad de conexión; estable.", "11/07/2025"});
-	comentarios.push_back((Comentario){38, "Reloj Digital", "Sofía Ramírez", "Pantalla atractiva pero la batería dura poco.", "13/07/2025"});
-	comentarios.push_back((Comentario){39, "Luces LED", "Andrea Gutiérrez", "Buenas opciones de colores; buen diseño.", "15/07/2025"});
+	comentarios.push_back((Comentario){35, "Smart Lock", "Oscar RodrÃ­guez", "Seguridad y tecnologÃ­a en un solo dispositivo.", "07/07/2025"});
+	comentarios.push_back((Comentario){36, "Proyector", "Cristina Vargas", "Imagen nÃ­tida pero requiere una sala oscura.", "09/07/2025"});
+	comentarios.push_back((Comentario){37, "Switch Ethernet", "Mario HernÃ¡ndez", "Buena velocidad de conexiÃ³n; estable.", "11/07/2025"});
+	comentarios.push_back((Comentario){38, "Reloj Digital", "SofÃ­a RamÃ­rez", "Pantalla atractiva pero la baterÃ­a dura poco.", "13/07/2025"});
+	comentarios.push_back((Comentario){39, "Luces LED", "Andrea GutiÃ©rrez", "Buenas opciones de colores; buen diseÃ±o.", "15/07/2025"});
 	comentarios.push_back((Comentario){40, "Estabilizador", "Pablo Medina", "Protege bien contra variaciones de voltaje.", "17/07/2025"});
-	comentarios.push_back((Comentario){41, "Cargador Inalámbrico", "Patricia López", "Carga rápido pero requiere posicionamiento preciso.", "19/07/2025"});
+	comentarios.push_back((Comentario){41, "Cargador InalÃ¡mbrico", "Patricia LÃ³pez", "Carga rÃ¡pido pero requiere posicionamiento preciso.", "19/07/2025"});
 	comentarios.push_back((Comentario){42, "HDD Externo", "Gonzalo Espinoza", "Mucho espacio; resistente y confiable.", "21/07/2025"});
-	comentarios.push_back((Comentario){43, "Micrófono", "Elena Herrera", "Calidad de sonido profesional; ideal para podcast.", "23/07/2025"});
-	comentarios.push_back((Comentario){44, "Altavoz Inteligente", "Diego Soto", "Responde bien a comandos de voz; útil en casa.", "25/07/2025"});
-	comentarios.push_back((Comentario){45, "Antena Wi-Fi", "Miguel Rojas", "Amplifica bien la señal pero el rango es limitado.", "27/07/2025"});
-	comentarios.push_back((Comentario){46, "Climatizador", "Esteranía Carrillo", "Enfría rápido pero es algo ruidoso.", "29/07/2025"});
-	comentarios.push_back((Comentario){47, "Raspberry Pi", "Manuel Vargas", "Perfecto para proyectos electrónicos y programación.", "31/07/2025"});
-	comentarios.push_back((Comentario){48, "Capturadora", "Luisa Mejía", "Ideal para streaming y grabaciones en alta calidad.", "02/08/2025"});
-	comentarios.push_back((Comentario){49, "Smart Plug", "Victoria Torres", "Muy práctico; fácil de conectar y configurar.", "04/08/2025"});
-	comentarios.push_back((Comentario){50, "Timbre Inteligente", "Federico Montoya", "Buena cámara; útil para seguridad.", "06/08/2025"});
+	comentarios.push_back((Comentario){43, "MicrÃ³fono", "Elena Herrera", "Calidad de sonido profesional; ideal para podcast.", "23/07/2025"});
+	comentarios.push_back((Comentario){44, "Altavoz Inteligente", "Diego Soto", "Responde bien a comandos de voz; Ãºtil en casa.", "25/07/2025"});
+	comentarios.push_back((Comentario){45, "Antena Wi-Fi", "Miguel Rojas", "Amplifica bien la seÃ±al pero el rango es limitado.", "27/07/2025"});
+	comentarios.push_back((Comentario){46, "Climatizador", "EsteranÃ­a Carrillo", "EnfrÃ­a rÃ¡pido pero es algo ruidoso.", "29/07/2025"});
+	comentarios.push_back((Comentario){47, "Raspberry Pi", "Manuel Vargas", "Perfecto para proyectos electrÃ³nicos y programaciÃ³n.", "31/07/2025"});
+	comentarios.push_back((Comentario){48, "Capturadora", "Luisa MejÃ­a", "Ideal para streaming y grabaciones en alta calidad.", "02/08/2025"});
+	comentarios.push_back((Comentario){49, "Smart Plug", "Victoria Torres", "Muy prÃ¡ctico; fÃ¡cil de conectar y configurar.", "04/08/2025"});
+	comentarios.push_back((Comentario){50, "Timbre Inteligente", "Federico Montoya", "Buena cÃ¡mara; Ãºtil para seguridad.", "06/08/2025"});
     
 	cout << "Datos cargados correctamente!" << endl;
     cout << "- Usuarios: " << usuarios.size() << endl;
     cout << "- Productos: " << productos.size() << endl;
     cout << "- Comentarios: " << comentarios.size() << endl;
 }
-
