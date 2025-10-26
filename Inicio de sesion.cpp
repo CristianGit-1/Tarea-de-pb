@@ -1,16 +1,16 @@
-// Funci髇 para iniciar sesi髇
+// Funci贸n para iniciar sesi贸n
 Usuario* iniciarSesion() {
     string correo, clave;
     
-    cout << "\n=== INICIAR SESI覰 ===" << endl;
-    cout << "Correo electr髇ico: ";
+    cout << "\n=== INICIAR SESI脫N ===" << endl;
+    cout << "Correo electr贸nico: ";
     cin >> correo;
-    cout << "Contrase馻: ";
+    cout << "Contrase帽a: ";
     cin >> clave;
     
     for (int i = 0; i < usuarios.size(); i++) {
         if (usuarios[i].correoElectronico == correo && usuarios[i].contrasena == clave) {
-            cout << "ienvenido " << usuarios[i].nombre << "!" << endl;
+            cout << "隆Bienvenido " << usuarios[i].nombre << "!" << endl;
             return &usuarios[i];
         }
     }
@@ -19,7 +19,7 @@ Usuario* iniciarSesion() {
     return NULL;
 }
 
-// Funci髇 para listar productos de bajo stock (<15 unidades)
+// Funci贸n para listar productos de bajo stock (<15 unidades)
 void listarProductosBajoStock() {
     cout << "\n=== PRODUCTOS CON STOCK BAJO (<15 unidades) ===" << endl;
     bool encontrados = false;
@@ -28,7 +28,7 @@ void listarProductosBajoStock() {
         if (productos[i].stock < 15) {
             cout << "ID: " << productos[i].idProducto << endl;
             cout << "Nombre: " << productos[i].nombre << endl;
-            cout << "Descripci髇: " << productos[i].descripcion << endl;
+            cout << "Descripci贸n: " << productos[i].descripcion << endl;
             cout << "Precio: $" << productos[i].precio << endl;
             cout << "Stock: " << productos[i].stock << endl;
             cout << "------------------------" << endl;
@@ -41,7 +41,7 @@ void listarProductosBajoStock() {
     }
 }
 
-// Funci髇 para filtrar comentarios desde cierta fecha
+// Funci贸n para filtrar comentarios desde cierta fecha
 void listarComentariosDesdeFecha() {
     string fecha;
     cout << "\nIngrese fecha (formato: dd/mm/aaaa): ";
