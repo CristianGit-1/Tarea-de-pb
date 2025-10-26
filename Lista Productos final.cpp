@@ -70,7 +70,7 @@ int main() {
         if (opcion == 1) {
             Usuario* usuario = iniciarSesion();
             if (usuario != nullptr) {
-                menuUsuario(usuari);
+                menuUsuario(usuario);
             }
         } else if (opcion != 0) {
             cout << "Opción inválida. Intente nuevamente." << endl;
