@@ -1,7 +1,6 @@
-// 8. LISTAR PRODUCTOS
+//Funci√≥n para listar productos del carrito
 void listarCarrito(Usuario* usuarioActual) {
     CarritoDeCompras* carritoUsuario = nullptr;
-
     // Buscar el carrito del usuario actual
     for (size_t i = 0; i < carritos.size(); ++i) {
         if (carritos[i].usuario.idUsuario == usuarioActual->idUsuario) {
@@ -9,12 +8,10 @@ void listarCarrito(Usuario* usuarioActual) {
             break;
         }
     }
-
     if (carritoUsuario == nullptr) {
         cout << "No tiene productos en el carrito." << endl;
         return;
     }
-
     cout << "\n=== CARRITO DE COMPRAS ===" << endl;
     cout << "ID Carrito: " << carritoUsuario->idCarrito << endl;
 
@@ -23,76 +20,63 @@ void listarCarrito(Usuario* usuarioActual) {
         cout << "- " << producto.nombre 
              << " | $" << producto.precio << endl;
     }
-
     cout << "Subtotal:  $" << carritoUsuario->subtotal << endl;
     cout << "Impuestos: $" << carritoUsuario->impuestos << endl;
     cout << "Total:     $" << carritoUsuario->subtotal + carritoUsuario->impuestos << endl;
 }
-
-// Men˙ principal del usuario
+// Men√∫ principal del usuario
 void menuUsuario(Usuario* usuario) {
-    int opcion = -1;
-
+    int opcion;
     do {
-        cout << "\n=== MEN⁄ PRINCIPAL ===" << endl;
+        cout << "\n=== MEN√ö PRINCIPAL ===" << endl;
         cout << "1. Listar productos con stock bajo" << endl;
         cout << "2. Ver comentarios desde una fecha" << endl;
         cout << "3. Listar usuarios" << endl;
         cout << "4. Agregar productos al carrito" << endl;
         cout << "5. Listar productos del carrito" << endl;
-        cout << "0. Cerrar sesiÛn" << endl;
-        cout << "Seleccione una opciÛn: ";
+        cout << "0. Cerrar sesi√≥n" << endl;
+        cout << "Seleccione una opci√≥n: ";
         cin >> opcion;
 
         switch (opcion) {
-            case 1:
-                listarProductosBajoStock();
-                break;
-            case 2:
-                listarComentariosDesdeFecha();
-                break;
-            case 3:
-                listarUsuarios();
-                break;
-            case 4:
-                agregarAlCarrito(usuario);
-                break;
-            case 5:
-                listarCarrito(usuario);
-                break;
-            case 0:
-                cout << "Cerrando sesiÛn..." << endl;
-                break;
-            default:
-                cout << "OpciÛn inv·lida. Intente de nuevo." << endl;
+            case 1: listarProductosBajoStock();
+             break;
+            case 2: listarComentariosDesdeFecha();
+             break;
+            case 3: listarUsuarios();
+             break;
+            case 4: agregarAlCarrito(usuario);
+             break;
+            case 5: listarCarrito(usuario);
+             break;
+            case 0: cout << "Cerrando sesi√≥n..." << endl;
+             break;
+            default: cout << "Opci√≥n inv√°lida. Intente de nuevo." << endl;
         }
     } while (opcion != 0);
 }
 
 int main() {
     setlocale(LC_ALL, "spanish");
-
     cargarDatos();
-
-    int opcion = -1;
+    int opcion;
     do {
         cout << "\n=== SISTEMA E-COMMERCE ===" << endl;
-        cout << "1. Iniciar sesiÛn" << endl;
+        cout << "1. Iniciar sesi√≥n" << endl;
         cout << "0. Salir" << endl;
-        cout << "Seleccione una opciÛn: ";
+        cout << "Seleccione una opci√≥n: ";
         cin >> opcion;
 
         if (opcion == 1) {
             Usuario* usuario = iniciarSesion();
             if (usuario != nullptr) {
-                menuUsuario(usuario);
+                menuUsuario(usuari);
             }
         } else if (opcion != 0) {
-            cout << "OpciÛn inv·lida. Intente nuevamente." << endl;
+            cout << "Opci√≥n inv√°lida. Intente nuevamente." << endl;
         }
     } while (opcion != 0);
 
-    cout << "°Gracias por usar el sistema!" << endl;
+    cout << "¬°Gracias por usar el sistema!" << endl;
     return 0;
 }
-
